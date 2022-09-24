@@ -8,10 +8,19 @@
     padding: 0px;
 }
 
+h1 {
+    font-size: 35px;
+}
+
 a {
     text-decoration: none;
 }
 
+button {
+    padding: 2px 5px 2px 5px;
+    background-color: var(--main);
+    color: white;
+}
 
 header {
     display: flex;
@@ -24,7 +33,8 @@ header p {
     color: var(--main);
 }
 
-main {
+main,
+.end-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,8 +48,13 @@ main p {
     width: 30%;
 }
 
-main button {
-    padding: 2px 5px 2px 5px;
-    background-color: var(--main);
-    color: white;
+
+
+#end-screen {
+   display: flex;
 }
+
+.hide {
+    display: none;
+}
+

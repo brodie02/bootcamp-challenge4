@@ -12,11 +12,22 @@
         <p><a href="">View Highscores</a></p>
         <p id="timer">Time Left: 75</p>
     </header>
-    <main>
-        <h1 id="header">Coding Quiz Challenge</h1>
+    <main id="main">
+        <h1 id="title">Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your time by 10 seconds!</p>
         <button id="start-button">Start Quiz</button>
     </main>
+
+    <div class="hide end-screen">
+        <h1>All done!</h1>
+        <p>Your final score is</p>
+        <div>
+            <label for="initials">Enter initials:</label>
+            <input name="initials" type="text">
+            <button id="submit-initials">Submit</button>
+        </div>
+    </div>
+    
     <script src="./assets/script.js"></script>
 </body>
 </html>
