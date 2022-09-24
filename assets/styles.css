@@ -1,0 +1,45 @@
+:root {
+    --main: purple;
+    font-family: sans-serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+header p {
+    color: var(--main);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+main p {
+    width: 30%;
+}
+
+main button {
+    padding: 2px 5px 2px 5px;
+    background-color: var(--main);
+    color: white;
+}
