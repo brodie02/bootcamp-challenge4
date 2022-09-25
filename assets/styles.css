@@ -1,11 +1,11 @@
 :root {
     --main: purple;
-    font-family: sans-serif;
 }
 
 * {
     margin: 0px;
     padding: 0px;
+    font-family: sans-serif;
 }
 
 h1 {
@@ -16,7 +16,8 @@ a {
     text-decoration: none;
 }
 
-button {
+button,
+li {
     padding: 2px 5px 2px 5px;
     background-color: var(--main);
     color: white;
@@ -48,13 +49,32 @@ main p {
     width: 30%;
 }
 
-
-
 #end-screen {
    display: flex;
+}
+
+
+.questions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.questions h1 {
+    width: 60%;
+}
+
+.questions li {
+    list-style: none;
+    border-radius: 5px;
+}
+
+.questions li:not(:last-child) {
+    margin-bottom: 3px;
 }
 
 .hide {
     display: none;
 }
-
