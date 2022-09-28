@@ -137,7 +137,7 @@ function highScore() {
     highscoreScreen.classList.remove("hide")
 
     var highscoreLi = document.createElement("li")
-    highscoreLi.textContent = userInitials
+    highscoreLi.textContent = userInitials + "-" + score
     highscores.appendChild(highscoreLi)
    }) 
 }
@@ -146,7 +146,7 @@ function clearHighScore() {
     var clearBtn = document.querySelector("#clear")
     clearBtn.addEventListener("click", function(event) {
         event.preventDefault
-
+        highscoreLi.innerHTML = ""
     })
 }
 
