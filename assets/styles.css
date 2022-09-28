@@ -73,13 +73,22 @@ button {
     padding: 5px;
 }
 
-.hide {
-    display: none;
-}
 
 #output-text {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 15px;
+}
+
+.highscore {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.hide {
+    display: none;
 }

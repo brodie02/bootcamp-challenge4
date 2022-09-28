@@ -9,6 +9,8 @@ var outputText = document.querySelector("#output-text")
 var ansContainer = document.querySelector("#container")
 var initialsInput = document.querySelector("#initial-input")
 var initialsForm = document.querySelector("#initial-form")
+var highscoreScreen = document.querySelector(".highscore")
+var highscores = document.querySelector("#highscore-text")
 var timeLeft = 75;
 var score = 0
 
@@ -125,18 +127,42 @@ function quizGame() {
 }
 
 function highScore() {
+
    initialsForm.addEventListener("submit", function(event) {
     event.preventDefault()
 
     var userInitials = initialsInput.value.trim()
-    console.log(userInitials);
+
+    endScreen.classList.add("hide")
+    highscoreScreen.classList.remove("hide")
+
+    var highscoreLi = document.createElement("li")
+    highscoreLi.textContent = userInitials
+    highscores.appendChild(highscoreLi)
    }) 
+}
+
+function clearHighScore() {
+    var clearBtn = document.querySelector("#clear")
+    clearBtn.addEventListener("click", function(event) {
+        event.preventDefault
+
+    })
+}
+
+function goBack() {
+    var restartBtn = document.querySelector("#restart")
+    restartBtn.addEventListener("click", function(event) {
+        startScreen.classList.remove("hide")
+        highscoreScreen.classList.add("hide")
+    })
 }
 
 function init() {
     startGame()
     quizGame()
     highScore()
+    goBack()
 }
 
 init()
