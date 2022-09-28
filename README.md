@@ -14,6 +14,6 @@ To access this webpage, follow the link below and view the webpage, click start 
 
 Below is the link to the webpage
 
-https://github.com/brodie02/bootcamp-challenge4
+https://brodie02.github.io/bootcamp-challenge4/
       
 ---
