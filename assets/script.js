@@ -7,27 +7,11 @@ var endScreen = document.querySelector(".end-screen")
 var answerLi = document.querySelector(".answer")
 var outputText = document.querySelector("#output-text")
 var ansContainer = document.querySelector("#container")
+var initialsInput = document.querySelector("#initial-input")
+var initialsForm = document.querySelector("#initial-form")
 var timeLeft = 75;
 var score = 0
 
-//var quiz = {
-  //  questions: ["What type of language is JavaScript:", 
-  //  "In JavaScript, what is a block of statement?",
-  //  "When interpreter encounters an empty statements, what it will do:",
-  //  ],
-  //  answer1: ["Object-Oriented", 
-  //  "Conditional block",
-  //  "Shows a warning"],
-  //  answer2: ["Object-Based", 
-  //  "block that combines a number of statements into a single compound statement",
-  //  "Prompts to complete the statement"],
-  //  answer3: ["Assembly-language", 
-  //  "both conditional block and a single statement",
-  //  "Throws an error"],
-  // answer4: ["High-level", 
-  //  "block that contains a single statement",
-  //  "Ignores the statements"],
-//}
 
 var quiz = [
     {
@@ -103,8 +87,6 @@ function quizGame() {
     questionsScreen.children[3].innerHTML = quiz[i].answers.three
     questionsScreen.children[4].innerHTML = quiz[i].answers.four
 
-    //questionsScreen.children[2].classList.add("correct")
-
     questionsScreen.addEventListener("click", function(event) {
         var userAnswer = event.target
         var correctAns = quiz[i].correctAnswer
@@ -112,9 +94,17 @@ function quizGame() {
         if (correctAns == userAnswer.innerText) {
             score ++
                 outputText.innerHTML = "Correct!"
+                var correctInterval = setInterval(function () {
+                    outputText.innerHTML = ""
+                    clearInterval(correctInterval)
+                }, 1000)
         } else {
             outputText.innerHTML = "Wrong!"
-            timeLeft = timeLeft - 15
+            timeLeft = timeLeft - 10
+            var wrongInterval = setInterval(function () {
+                outputText.innerHTML = ""
+                clearInterval(wrongInterval)
+            }, 1000)
         }
 
         if (userAnswer.matches(".answer")) {
@@ -134,11 +124,19 @@ function quizGame() {
     })
 }
 
+function highScore() {
+   initialsForm.addEventListener("submit", function(event) {
+    event.preventDefault()
 
+    var userInitials = initialsInput.value.trim()
+    console.log(userInitials);
+   }) 
+}
 
 function init() {
     startGame()
     quizGame()
+    highScore()
 }
 
 init()
