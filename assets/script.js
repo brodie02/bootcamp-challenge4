@@ -38,7 +38,7 @@ var quiz = [
             three: "Assembly-language",
             four: "High-level"
         },
-        correctAnswer: "two"
+        correctAnswer: "Object-Based"
     },
     {
         ques: "In JavaScript, what is a block of statement?",
@@ -49,9 +49,28 @@ var quiz = [
             four: "block that contains a single statement"
         },
         correctAnswer: "two"
+    },
+    {
+        ques: "When interpreter encounters an empty statements, what it will do:",
+        answers: {
+            one: "Shows a warning",
+            two: "Prompts to complete the statement",
+            three: "Throws an error",
+            four: "Ignores the statements"
+        },
+        correctAnswer: "four"
+    },
+    {
+        ques: "When interpreter encounters an empty statements, what it will do:",
+        answers: {
+            one: "Shows a warning",
+            two: "Prompts to complete the statement",
+            three: "Throws an error",
+            four: "Ignores the statements"
+        },
+        correctAnswer: "four"
     }]
 
-//var correct = [quiz.answer2[0], quiz.answer2[1], quiz.answer4[2]]
 
 
 
@@ -80,34 +99,34 @@ function quizGame() {
     var i = 0
 
     questionsScreen.children[0].innerHTML = quiz[i].ques
-    questionsScreen.children[1].innerHTML = "1. " + quiz[i].answers.one
-    questionsScreen.children[2].innerHTML = "2. " + quiz[i].answers.two
-    questionsScreen.children[3].innerHTML = "3. " + quiz[i].answers.three
-    questionsScreen.children[4].innerHTML = "4. " + quiz[i].answers.four
+    questionsScreen.children[1].innerHTML = quiz[i].answers.one
+    questionsScreen.children[2].innerHTML = quiz[i].answers.two
+    questionsScreen.children[3].innerHTML = quiz[i].answers.three
+    questionsScreen.children[4].innerHTML = quiz[i].answers.four
 
+    //questionsScreen.children[2].classList.add("correct")
 
     questionsScreen.addEventListener("click", function(event) {
-        var click = event.target
-        
-        if (click.matches(".answer")) {
+        var userAnswer = event.target
+        //var correctAnswer = "2. Object-Based"
+        if (userAnswer.matches(".answer")) {
             i ++
             questionsScreen.children[0].innerHTML = quiz[i].ques
-            questionsScreen.children[1].innerHTML = "1. " + quiz[i].answers.one
-            questionsScreen.children[2].innerHTML = "2. " + quiz[i].answers.two
-            questionsScreen.children[3].innerHTML = "3. " + quiz[i].answers.three
-            questionsScreen.children[4].innerHTML = "4. " + quiz[i].answers.four
+            questionsScreen.children[1].innerHTML = quiz[i].answers.one
+            questionsScreen.children[2].innerHTML = quiz[i].answers.two
+            questionsScreen.children[3].innerHTML = quiz[i].answers.three
+            questionsScreen.children[4].innerHTML = quiz[i].answers.four
         }
 
-        if (click === correctAnswer) {
+        if (quiz[i].correctAnswer === userAnswer.innerHTML) {
             score ++
-            var timeInterval = setTimeout(function () {
                 outputText.innerHTML = "Correct!"
-            }, 0) //how to make it disappear ?
         } else {
             outputText.innerHTML = "Wrong!"
+            timeLeft = timeLeft - 15
         }
 
-        if (i === 2) {
+        if (i === 3) {
             questionsScreen.classList.add("hide")
             endScreen.classList.remove("hide")
             endScreen.children[1].innerHTML = "Your final score is: " + score
