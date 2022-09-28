@@ -48,7 +48,7 @@ var quiz = [
             three: "both conditional block and a single statement",
             four: "block that contains a single statement"
         },
-        correctAnswer: "two"
+        correctAnswer: "block that combines a number of statements into a single compound statement"
     },
     {
         ques: "When interpreter encounters an empty statements, what it will do:",
@@ -58,7 +58,7 @@ var quiz = [
             three: "Throws an error",
             four: "Ignores the statements"
         },
-        correctAnswer: "four"
+        correctAnswer: "Ignores the statements"
     },
     {
         ques: "When interpreter encounters an empty statements, what it will do:",
@@ -68,9 +68,8 @@ var quiz = [
             three: "Throws an error",
             four: "Ignores the statements"
         },
-        correctAnswer: "four"
+        correctAnswer: "Ignores the statements"
     }]
-
 
 
 
@@ -108,7 +107,16 @@ function quizGame() {
 
     questionsScreen.addEventListener("click", function(event) {
         var userAnswer = event.target
-        //var correctAnswer = "2. Object-Based"
+        var correctAns = quiz[i].correctAnswer
+
+        if (correctAns == userAnswer.innerText) {
+            score ++
+                outputText.innerHTML = "Correct!"
+        } else {
+            outputText.innerHTML = "Wrong!"
+            timeLeft = timeLeft - 15
+        }
+
         if (userAnswer.matches(".answer")) {
             i ++
             questionsScreen.children[0].innerHTML = quiz[i].ques
@@ -116,14 +124,6 @@ function quizGame() {
             questionsScreen.children[2].innerHTML = quiz[i].answers.two
             questionsScreen.children[3].innerHTML = quiz[i].answers.three
             questionsScreen.children[4].innerHTML = quiz[i].answers.four
-        }
-
-        if (quiz[i].correctAnswer === userAnswer.innerHTML) {
-            score ++
-                outputText.innerHTML = "Correct!"
-        } else {
-            outputText.innerHTML = "Wrong!"
-            timeLeft = timeLeft - 15
         }
 
         if (i === 3) {
@@ -134,9 +134,12 @@ function quizGame() {
     })
 }
 
+
+
 function init() {
     startGame()
     quizGame()
 }
 
 init()
+
